@@ -17,6 +17,7 @@ Placeholders delimiters are customizables (default: `{}`).
 * **defaults** Default values for context.
 * **delKeys**  If `true`, all keys found in template will be removed from context/defaults,
                depending of which object provide the key (default: `false`).
+* **keep**     Preserve plaholders not replaced (default: `false`).
 * **left**     Left delimiter (default: `{`).
 * **right**    Right delimiter (default: `}`).
 * **tpl**      Template to render.
@@ -55,4 +56,26 @@ console.log(
         }
     )
 );
+// Param keep
+console.log(
+    jfTpl(
+        {
+            tpl     : 'Hello {name}, welcome to {site}',
+            context : {
+                name : 'Guest'
+            }
+        }
+    )
+); // Hello Guest, welcome to
+console.log(
+    jfTpl(
+        {
+            tpl     : 'Hello {name}, welcome to {site}',
+            keep    : true,
+            context : {
+                name : 'Guest'
+            }
+        }
+    )
+); // Hello Guest, welcome to {site}
 ```

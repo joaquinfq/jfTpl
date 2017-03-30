@@ -1,22 +1,22 @@
 {
-    "version"     : "0.1.0",
-    "name"        : "jf-tpl",
-    "author"      : "Joaquín Fernández",
-    "description" : "Replace placeholders in a string with values in object. Placeholders delimiters are customizables.",
-    "keywords"    : [
+    "version": "0.1.1",
+    "name": "jf-tpl",
+    "author": "Joaquín Fernández",
+    "description": "Replace placeholders in a string with values in object. Placeholders delimiters are customizables.",
+    "keywords": [
         "handlebars",
         "mustache",
         "object",
         "placeholders",
         "template"
     ],
-    "license"     : "MIT",
-    "homepage"    : "http://www.joaquinfernandez.net",
-    "repository"  : {
-        "type" : "git",
-        "url"  : "https://github.com/joaquinfq/jfTpl"
+    "license": "MIT",
+    "homepage": "http://www.joaquinfernandez.net",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/joaquinfq/jfTpl"
     },
-    "scripts"      : {
-        "test" : "node test"
+    "scripts": {
+        "test": "node test"
     }
 }

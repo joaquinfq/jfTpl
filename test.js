@@ -71,3 +71,21 @@ testTpl(
         defaults : {name : 'User'}
     }
 );
+//------------------------------------------------------------------------------
+// Verificamos el uso de keep.
+//------------------------------------------------------------------------------
+testTpl(
+    {
+        tpl     : 'Hello {name}, welcome to {osite}',
+        keep    : true,
+        context : {
+            name : 'User'
+        }
+    },
+    {
+        tpl      : 'Hello User, welcome to {osite}',
+        context  : {
+            name : 'User'
+        }
+    }
+);
