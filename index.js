@@ -1,7 +1,4 @@
-const escRegExp = /[-\/\\^$*+?.()|[\]{}]/g;
-const escape    = (text) => text && typeof text === 'string'
-    ? text.replace(escRegExp, '\\$&')
-    : '';
+const regexcape = require('@jf/regexcape');
 /**
  * Reemplaza los parámetros presentes en una plantilla con los valores
  * especificados en el contexto.
@@ -17,16 +14,17 @@ const escape    = (text) => text && typeof text === 'string'
  */
 module.exports = function jfTpl(config)
 {
-    const _context  = config.context || {};
+    const _context  = config.context  || {};
     const _defaults = config.defaults || {};
-    const _delKeys  = config.delKeys;
-    const _keep     = config.keep;
-    const _cl       = config.left || '{';
-    const _cr       = config.right || '}';
-    const _left     = escape(_cl);
-    const _right    = escape(_cr);
+    const _delKeys  = config.delKeys  || false;
+    const _keep     = config.keep     || false;
+    const _cl       = config.left     || '{';
+    const _cr       = config.right    || '}';
+    const _left     = regexcape(_cl);
+    const _right    = regexcape(_cr);
     const _removed  = {};
     const _values   = Object.assign({}, _defaults, _context);
+
     return String(config.tpl || '').replace(
         new RegExp(`${_left}([^${_left}${_right}]+)${_right}`, 'g'),
         (pattern, match) =>
@@ -49,7 +47,7 @@ module.exports = function jfTpl(config)
                     {
                         delete _context[match];
                     }
-                    else if (match in _defaults)
+                    else
                     {
                         delete _defaults[match];
                     }

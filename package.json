@@ -1,6 +1,6 @@
 {
-    "version": "0.1.1",
-    "name": "jf-tpl",
+    "version": "1.0.0",
+    "name": "@jf/tpl",
     "author": "Joaquín Fernández",
     "description": "Replace placeholders in a string with values in object. Placeholders delimiters are customizables.",
     "keywords": [
@@ -17,6 +17,12 @@
         "url": "https://github.com/joaquinfq/jfTpl"
     },
     "scripts": {
-        "test": "node test"
+        "test": "nyc --reporter=text --all --include=index.js node tests.js"
+    },
+    "dependencies": {
+        "@jf/regexcape": "^2.0.0"
+    },
+    "devDependencies": {
+        "nyc": "^13.3.0"
     }
 }
